@@ -8,20 +8,26 @@
 
 /* Begin PBXBuildFile section */
 		087109111E65BA3E0044C5E4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 087109101E65BA3E0044C5E4 /* AppDelegate.swift */; };
-		087109131E65BA3E0044C5E4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 087109121E65BA3E0044C5E4 /* ViewController.swift */; };
 		087109161E65BA3E0044C5E4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 087109141E65BA3E0044C5E4 /* Main.storyboard */; };
 		087109181E65BA3E0044C5E4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 087109171E65BA3E0044C5E4 /* Assets.xcassets */; };
 		0871091B1E65BA3E0044C5E4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 087109191E65BA3E0044C5E4 /* LaunchScreen.storyboard */; };
+		087109231E65C4720044C5E4 /* StartTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 087109221E65C4720044C5E4 /* StartTableViewController.swift */; };
+		087109251E65C4BF0044C5E4 /* CatTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 087109241E65C4BF0044C5E4 /* CatTableViewCell.swift */; };
+		D0F4B4C81E38F568BCF696C4 /* Pods_Api_Awakens_TH.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B58FE93C392903328F0206F9 /* Pods_Api_Awakens_TH.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		00F50CABC3800CCD85B1DF18 /* Pods-Api Awakens TH.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Api Awakens TH.release.xcconfig"; path = "Pods/Target Support Files/Pods-Api Awakens TH/Pods-Api Awakens TH.release.xcconfig"; sourceTree = "<group>"; };
 		0871090D1E65BA3E0044C5E4 /* Api Awakens TH.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Api Awakens TH.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		087109101E65BA3E0044C5E4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		087109121E65BA3E0044C5E4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		087109151E65BA3E0044C5E4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		087109171E65BA3E0044C5E4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0871091A1E65BA3E0044C5E4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0871091C1E65BA3E0044C5E4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		087109221E65C4720044C5E4 /* StartTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartTableViewController.swift; sourceTree = "<group>"; };
+		087109241E65C4BF0044C5E4 /* CatTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CatTableViewCell.swift; sourceTree = "<group>"; };
+		2088F3D6D6BEE18DD73EF6F9 /* Pods-Api Awakens TH.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Api Awakens TH.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Api Awakens TH/Pods-Api Awakens TH.debug.xcconfig"; sourceTree = "<group>"; };
+		B58FE93C392903328F0206F9 /* Pods_Api_Awakens_TH.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Api_Awakens_TH.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,6 +35,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D0F4B4C81E38F568BCF696C4 /* Pods_Api_Awakens_TH.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -40,6 +47,8 @@
 			children = (
 				0871090F1E65BA3E0044C5E4 /* Api Awakens TH */,
 				0871090E1E65BA3E0044C5E4 /* Products */,
+				8B167F44EF530C4C9EE8910F /* Pods */,
+				EFE20A1F210A6B77C7537C44 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -55,13 +64,31 @@
 			isa = PBXGroup;
 			children = (
 				087109101E65BA3E0044C5E4 /* AppDelegate.swift */,
-				087109121E65BA3E0044C5E4 /* ViewController.swift */,
 				087109141E65BA3E0044C5E4 /* Main.storyboard */,
 				087109171E65BA3E0044C5E4 /* Assets.xcassets */,
 				087109191E65BA3E0044C5E4 /* LaunchScreen.storyboard */,
 				0871091C1E65BA3E0044C5E4 /* Info.plist */,
+				087109221E65C4720044C5E4 /* StartTableViewController.swift */,
+				087109241E65C4BF0044C5E4 /* CatTableViewCell.swift */,
 			);
 			path = "Api Awakens TH";
+			sourceTree = "<group>";
+		};
+		8B167F44EF530C4C9EE8910F /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				2088F3D6D6BEE18DD73EF6F9 /* Pods-Api Awakens TH.debug.xcconfig */,
+				00F50CABC3800CCD85B1DF18 /* Pods-Api Awakens TH.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		EFE20A1F210A6B77C7537C44 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B58FE93C392903328F0206F9 /* Pods_Api_Awakens_TH.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -71,9 +98,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0871091F1E65BA3E0044C5E4 /* Build configuration list for PBXNativeTarget "Api Awakens TH" */;
 			buildPhases = (
+				82EC00B1B8C0E1A92041CA4E /* [CP] Check Pods Manifest.lock */,
 				087109091E65BA3E0044C5E4 /* Sources */,
 				0871090A1E65BA3E0044C5E4 /* Frameworks */,
 				0871090B1E65BA3E0044C5E4 /* Resources */,
+				D04EE636D1A9C4FD8228C363 /* [CP] Embed Pods Frameworks */,
+				DC496F1B8BF27C3E5961B2F7 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -132,12 +162,61 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		82EC00B1B8C0E1A92041CA4E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		D04EE636D1A9C4FD8228C363 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Api Awakens TH/Pods-Api Awakens TH-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DC496F1B8BF27C3E5961B2F7 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Api Awakens TH/Pods-Api Awakens TH-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		087109091E65BA3E0044C5E4 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				087109131E65BA3E0044C5E4 /* ViewController.swift in Sources */,
+				087109251E65C4BF0044C5E4 /* CatTableViewCell.swift in Sources */,
+				087109231E65C4720044C5E4 /* StartTableViewController.swift in Sources */,
 				087109111E65BA3E0044C5E4 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -257,7 +336,9 @@
 		};
 		087109201E65BA3E0044C5E4 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2088F3D6D6BEE18DD73EF6F9 /* Pods-Api Awakens TH.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = CH45DPWU9R;
 				INFOPLIST_FILE = "Api Awakens TH/Info.plist";
@@ -270,7 +351,9 @@
 		};
 		087109211E65BA3E0044C5E4 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 00F50CABC3800CCD85B1DF18 /* Pods-Api Awakens TH.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = CH45DPWU9R;
 				INFOPLIST_FILE = "Api Awakens TH/Info.plist";
@@ -300,6 +383,7 @@
 				087109211E65BA3E0044C5E4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
