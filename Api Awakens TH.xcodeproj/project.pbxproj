@@ -7,17 +7,21 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		083D28151E781575003E8D1B /* Character.swift in Sources */ = {isa = PBXBuildFile; fileRef = 083D28141E781575003E8D1B /* Character.swift */; };
 		087109111E65BA3E0044C5E4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 087109101E65BA3E0044C5E4 /* AppDelegate.swift */; };
 		087109161E65BA3E0044C5E4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 087109141E65BA3E0044C5E4 /* Main.storyboard */; };
 		087109181E65BA3E0044C5E4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 087109171E65BA3E0044C5E4 /* Assets.xcassets */; };
 		0871091B1E65BA3E0044C5E4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 087109191E65BA3E0044C5E4 /* LaunchScreen.storyboard */; };
 		087109231E65C4720044C5E4 /* StartTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 087109221E65C4720044C5E4 /* StartTableViewController.swift */; };
 		087109251E65C4BF0044C5E4 /* CatTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 087109241E65C4BF0044C5E4 /* CatTableViewCell.swift */; };
+		08D13A251E7AC54200CF4E3B /* Vehicle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08D13A241E7AC54200CF4E3B /* Vehicle.swift */; };
+		08D13A271E7AC9EB00CF4E3B /* Starship.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08D13A261E7AC9EB00CF4E3B /* Starship.swift */; };
 		D0F4B4C81E38F568BCF696C4 /* Pods_Api_Awakens_TH.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B58FE93C392903328F0206F9 /* Pods_Api_Awakens_TH.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		00F50CABC3800CCD85B1DF18 /* Pods-Api Awakens TH.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Api Awakens TH.release.xcconfig"; path = "Pods/Target Support Files/Pods-Api Awakens TH/Pods-Api Awakens TH.release.xcconfig"; sourceTree = "<group>"; };
+		083D28141E781575003E8D1B /* Character.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Character.swift; sourceTree = "<group>"; };
 		0871090D1E65BA3E0044C5E4 /* Api Awakens TH.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Api Awakens TH.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		087109101E65BA3E0044C5E4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		087109151E65BA3E0044C5E4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -26,6 +30,8 @@
 		0871091C1E65BA3E0044C5E4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		087109221E65C4720044C5E4 /* StartTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartTableViewController.swift; sourceTree = "<group>"; };
 		087109241E65C4BF0044C5E4 /* CatTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CatTableViewCell.swift; sourceTree = "<group>"; };
+		08D13A241E7AC54200CF4E3B /* Vehicle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Vehicle.swift; sourceTree = "<group>"; };
+		08D13A261E7AC9EB00CF4E3B /* Starship.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Starship.swift; sourceTree = "<group>"; };
 		2088F3D6D6BEE18DD73EF6F9 /* Pods-Api Awakens TH.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Api Awakens TH.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Api Awakens TH/Pods-Api Awakens TH.debug.xcconfig"; sourceTree = "<group>"; };
 		B58FE93C392903328F0206F9 /* Pods_Api_Awakens_TH.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Api_Awakens_TH.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -70,6 +76,9 @@
 				0871091C1E65BA3E0044C5E4 /* Info.plist */,
 				087109221E65C4720044C5E4 /* StartTableViewController.swift */,
 				087109241E65C4BF0044C5E4 /* CatTableViewCell.swift */,
+				083D28141E781575003E8D1B /* Character.swift */,
+				08D13A241E7AC54200CF4E3B /* Vehicle.swift */,
+				08D13A261E7AC9EB00CF4E3B /* Starship.swift */,
 			);
 			path = "Api Awakens TH";
 			sourceTree = "<group>";
@@ -218,6 +227,9 @@
 				087109251E65C4BF0044C5E4 /* CatTableViewCell.swift in Sources */,
 				087109231E65C4720044C5E4 /* StartTableViewController.swift in Sources */,
 				087109111E65BA3E0044C5E4 /* AppDelegate.swift in Sources */,
+				08D13A271E7AC9EB00CF4E3B /* Starship.swift in Sources */,
+				08D13A251E7AC54200CF4E3B /* Vehicle.swift in Sources */,
+				083D28151E781575003E8D1B /* Character.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
