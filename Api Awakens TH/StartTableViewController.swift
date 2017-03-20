@@ -8,6 +8,7 @@
 
 import UIKit
 import Alamofire
+import SwiftyJSON
 
 class StartTableViewController: UITableViewController {
     
@@ -15,6 +16,22 @@ class StartTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        print("Characters: \(get(for_resource: .Character))")
+        print("-----------------------------")
+        print("Starships: \(get(for_resource: .Starship))")
+        print("-----------------------------")
+        print("Vehicle: \(get(for_resource: .Vehicle))")
+
+        let vehiclesData = get(for_resource: .Vehicle)
+        var vehiclesJSON: JSON {
+            var json: JSON = JSON.null
+            vehiclesData.responseJSON { (response) in
+                print(response.value!)
+                json = JSON(response.value!)
+            }
+            return json
+        }
+        print(vehiclesJSON)
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
