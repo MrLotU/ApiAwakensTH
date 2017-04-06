@@ -16,22 +16,9 @@ class StartTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("Characters: \(get(for_resource: .Character))")
-        print("-----------------------------")
-        print("Starships: \(get(for_resource: .Starship))")
-        print("-----------------------------")
-        print("Vehicle: \(get(for_resource: .Vehicle))")
-
-        let vehiclesData = get(for_resource: .Vehicle)
-        var vehiclesJSON: JSON {
-            var json: JSON = JSON.null
-            vehiclesData.responseJSON { (response) in
-                print(response.value!)
-                json = JSON(response.value!)
-            }
-            return json
-        }
-        print(vehiclesJSON)
+        getJSON(resource: .Character)
+        getJSON(resource: .Starship)
+        getJSON(resource: .Vehicle)
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
@@ -73,6 +60,18 @@ class StartTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return UIScreen.main.bounds.height/3
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        switch categories[indexPath.row] {
+        case "Characters":
+            print(characterJSON)
+        case "Vehicles":
+            print(vehicleJSON)
+        default:
+            print(starshipJSON)
+        }
+
     }
  
     // MARK: - Navigation

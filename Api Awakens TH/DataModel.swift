@@ -22,9 +22,70 @@ enum resourceType {
     }
 }
 
-func get(for_resource resource: resourceType) -> DataRequest {
-    let url: URL = URL(string: "http://swapi.co/api/\(resource.rawValue)/"/*?format=json"*/)!
-    print(url)
-    let data = Alamofire.request(url)
-    return data
+
+func createJSON(json: JSON, resource: resourceType) {
+    switch resource {
+    case .Character:
+        if characterJSON == JSON.null {
+            characterJSON = json
+        } else {
+            do {
+                try characterJSON.merge(with: json)
+            } catch {
+                fatalError()
+            }
+        }
+        if let url = json["next"].string {
+            getJSON(resource: resource, url: url)
+        }
+    case .Starship:
+        if starshipJSON == JSON.null {
+            starshipJSON = json
+        } else {
+            do {
+                try starshipJSON.merge(with: json)
+            } catch {
+                fatalError()
+            }
+        }
+        if let url = json["next"].string {
+            getJSON(resource: resource, url: url)
+        }
+    case .Vehicle:
+        if vehicleJSON == JSON.null {
+            vehicleJSON = json
+        } else {
+            do {
+                try vehicleJSON.merge(with: json)
+            } catch {
+                fatalError()
+            }
+        }
+        if let url = json["next"].string {
+            getJSON(resource: resource, url: url)
+        }
+    }
+}
+
+public var characterJSON: JSON = JSON.null
+public var starshipJSON: JSON = JSON.null
+public var vehicleJSON: JSON = JSON.null
+
+func getJSON(resource: resourceType, url: URLConvertible? = nil) {
+    if url != nil {
+        Alamofire.request(url!).responseJSON {
+            (responseData) -> Void in
+            if((responseData.result.value) != nil) {
+                let json = JSON(responseData.result.value!)
+                createJSON(json: json, resource: resource)
+            }
+        }
+    } else {
+        Alamofire.request("http://swapi.co/api/\(resource.rawValue)/").responseJSON { (responseData) -> Void in
+            if((responseData.result.value) != nil) {
+                let json = JSON(responseData.result.value!)
+                createJSON(json: json, resource: resource)
+            }
+        }
+    }
 }

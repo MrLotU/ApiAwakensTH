@@ -168,7 +168,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0820;
-				LastUpgradeCheck = 0820;
+				LastUpgradeCheck = 0830;
 				ORGANIZATIONNAME = JarICT;
 				TargetAttributes = {
 					0871090C1E65BA3E0044C5E4 = {
