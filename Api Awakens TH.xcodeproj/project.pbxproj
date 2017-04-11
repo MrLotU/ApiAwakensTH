@@ -14,6 +14,11 @@
 		0871091B1E65BA3E0044C5E4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 087109191E65BA3E0044C5E4 /* LaunchScreen.storyboard */; };
 		087109231E65C4720044C5E4 /* StartTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 087109221E65C4720044C5E4 /* StartTableViewController.swift */; };
 		087109251E65C4BF0044C5E4 /* CatTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 087109241E65C4BF0044C5E4 /* CatTableViewCell.swift */; };
+		08B4E1C31E9D061F005C63ED /* DetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08B4E1C21E9D061F005C63ED /* DetailTableViewController.swift */; };
+		08B4E1C51E9D0753005C63ED /* DetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08B4E1C41E9D0753005C63ED /* DetailTableViewCell.swift */; };
+		08B4E1C71E9D0763005C63ED /* ConversionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08B4E1C61E9D0763005C63ED /* ConversionTableViewCell.swift */; };
+		08B4E1C91E9D0772005C63ED /* PickerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08B4E1C81E9D0772005C63ED /* PickerTableViewCell.swift */; };
+		08B4E1CB1E9D0780005C63ED /* FirstLastTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08B4E1CA1E9D0780005C63ED /* FirstLastTableViewCell.swift */; };
 		08D13A251E7AC54200CF4E3B /* Vehicle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08D13A241E7AC54200CF4E3B /* Vehicle.swift */; };
 		08D13A271E7AC9EB00CF4E3B /* Starship.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08D13A261E7AC9EB00CF4E3B /* Starship.swift */; };
 		08D13A2D1E7ADDE800CF4E3B /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08D13A2C1E7ADDE800CF4E3B /* DataModel.swift */; };
@@ -32,6 +37,11 @@
 		0871091C1E65BA3E0044C5E4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		087109221E65C4720044C5E4 /* StartTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartTableViewController.swift; sourceTree = "<group>"; };
 		087109241E65C4BF0044C5E4 /* CatTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CatTableViewCell.swift; sourceTree = "<group>"; };
+		08B4E1C21E9D061F005C63ED /* DetailTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailTableViewController.swift; sourceTree = "<group>"; };
+		08B4E1C41E9D0753005C63ED /* DetailTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailTableViewCell.swift; sourceTree = "<group>"; };
+		08B4E1C61E9D0763005C63ED /* ConversionTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConversionTableViewCell.swift; sourceTree = "<group>"; };
+		08B4E1C81E9D0772005C63ED /* PickerTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickerTableViewCell.swift; sourceTree = "<group>"; };
+		08B4E1CA1E9D0780005C63ED /* FirstLastTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirstLastTableViewCell.swift; sourceTree = "<group>"; };
 		08D13A241E7AC54200CF4E3B /* Vehicle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Vehicle.swift; sourceTree = "<group>"; };
 		08D13A261E7AC9EB00CF4E3B /* Starship.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Starship.swift; sourceTree = "<group>"; };
 		08D13A2C1E7ADDE800CF4E3B /* DataModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
@@ -86,6 +96,10 @@
 			children = (
 				087109241E65C4BF0044C5E4 /* CatTableViewCell.swift */,
 				08D13A321E7ADE4100CF4E3B /* NameTableViewCell.swift */,
+				08B4E1C41E9D0753005C63ED /* DetailTableViewCell.swift */,
+				08B4E1C61E9D0763005C63ED /* ConversionTableViewCell.swift */,
+				08B4E1C81E9D0772005C63ED /* PickerTableViewCell.swift */,
+				08B4E1CA1E9D0780005C63ED /* FirstLastTableViewCell.swift */,
 			);
 			name = "TV Cells";
 			sourceTree = "<group>";
@@ -94,6 +108,7 @@
 			isa = PBXGroup;
 			children = (
 				087109221E65C4720044C5E4 /* StartTableViewController.swift */,
+				08B4E1C21E9D061F005C63ED /* DetailTableViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -263,13 +278,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				08D13A2D1E7ADDE800CF4E3B /* DataModel.swift in Sources */,
+				08B4E1C91E9D0772005C63ED /* PickerTableViewCell.swift in Sources */,
 				087109251E65C4BF0044C5E4 /* CatTableViewCell.swift in Sources */,
 				087109231E65C4720044C5E4 /* StartTableViewController.swift in Sources */,
+				08B4E1C31E9D061F005C63ED /* DetailTableViewController.swift in Sources */,
 				087109111E65BA3E0044C5E4 /* AppDelegate.swift in Sources */,
 				08D13A271E7AC9EB00CF4E3B /* Starship.swift in Sources */,
+				08B4E1C71E9D0763005C63ED /* ConversionTableViewCell.swift in Sources */,
 				08D13A251E7AC54200CF4E3B /* Vehicle.swift in Sources */,
 				08D13A331E7ADE4100CF4E3B /* NameTableViewCell.swift in Sources */,
+				08B4E1C51E9D0753005C63ED /* DetailTableViewCell.swift in Sources */,
 				083D28151E781575003E8D1B /* Character.swift in Sources */,
+				08B4E1CB1E9D0780005C63ED /* FirstLastTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

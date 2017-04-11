@@ -8,7 +8,9 @@
 
 import Foundation
 
-class Vehicle {
+public var vehicles: [Vehicle] = []
+
+open class Vehicle {
     let name: String
     let make: String
     let cost: String
@@ -16,7 +18,7 @@ class Vehicle {
     let vehicleClass: String
     let crew: String
     
-    init(name: String, make: String, cost: String, length: String, vehicleClass: String, crew: String) {
+    public init(name: String, make: String, cost: String, length: String, vehicleClass: String, crew: String) {
         self.name = name
         self.make = make
         self.cost = cost

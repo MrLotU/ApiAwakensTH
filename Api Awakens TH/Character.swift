@@ -8,7 +8,9 @@
 
 import Foundation
 
-class Character {
+public var characters: [Character] = []
+
+open class Character {
     let name: String
     let birthYear: String
     let hairColor: String
@@ -18,7 +20,7 @@ class Character {
     let starships: [String]
     let vehicles: [String]
     
-    init(name: String, birthYear: String, hairColor: String, height: String, homeworld: String, species: [String], starships: [String], vehicles: [String]) {
+    public init(name: String, birthYear: String, hairColor: String, height: String, homeworld: String, species: [String], starships: [String], vehicles: [String]) {
         self.name = name
         self.birthYear = birthYear
         self.hairColor = hairColor

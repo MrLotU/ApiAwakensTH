@@ -8,20 +8,22 @@
 
 import Foundation
 
-class Starship {
+public var starships: [Starship] = []
+
+open class Starship {
     let name: String
     let make: String
     let cost: String
     let length: String
-    let vehicleClass: String
+    let starshipClass: String
     let crew: String
     
-    init(name: String, make: String, cost: String, length: String, vehicleClass: String, crew: String) {
+    public init(name: String, make: String, cost: String, length: String, starshipClass: String, crew: String) {
         self.name = name
         self.make = make
         self.cost = cost
         self.length = length
-        self.vehicleClass = vehicleClass
+        self.starshipClass = starshipClass
         self.crew = crew
     }
 }

@@ -65,11 +65,11 @@ class StartTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         switch categories[indexPath.row] {
         case "Characters":
-            print(characterJSON)
+            print(characters)
         case "Vehicles":
-            print(vehicleJSON)
+            print(vehicles)
         default:
-            print(starshipJSON)
+            print(starships)
         }
 
     }

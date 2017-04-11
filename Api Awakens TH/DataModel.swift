@@ -10,6 +10,10 @@ import Foundation
 import Alamofire
 import SwiftyJSON
 
+public var characterJSON: JSON = JSON.null
+public var starshipJSON: JSON = JSON.null
+public var vehicleJSON: JSON = JSON.null
+
 enum resourceType {
     case Character, Vehicle, Starship
     
@@ -37,6 +41,30 @@ func createJSON(json: JSON, resource: resourceType) {
         }
         if let url = json["next"].string {
             getJSON(resource: resource, url: url)
+        } else {
+            if let results = characterJSON["results"].array {
+                for result in results {
+                    let name = result["name"].string!
+                    let birthYear = result["birth_year"].string!
+                    let hairColor = result["hair_color"].string!
+                    let height = result["height"].string!
+                    let homeworld = result["homeworld"].string!
+                    var species: [String] = []
+                    if let speciesArray = result["species"].arrayObject {
+                        species = speciesArray.map {"\($0)"}
+                    }
+                    var starships: [String] = []
+                    if let starshipsArray = result["starships"].arrayObject {
+                        starships = starshipsArray.map {"\($0)"}
+                    }
+                    var vehicles: [String] = []
+                    if let vehiclesArray = result["vehicles"].arrayObject {
+                        vehicles = vehiclesArray.map {"\($0)"}
+                    }
+                    let character = Character(name: name, birthYear: birthYear, hairColor: hairColor, height: height, homeworld: homeworld, species: species, starships: starships, vehicles: vehicles)
+                    characters.append(character)
+                }
+            }
         }
     case .Starship:
         if starshipJSON == JSON.null {
@@ -50,6 +78,19 @@ func createJSON(json: JSON, resource: resourceType) {
         }
         if let url = json["next"].string {
             getJSON(resource: resource, url: url)
+        } else {
+            if let results = starshipJSON["results"].array {
+                for result in results {
+                    let name = result["name"].string!
+                    let make = result["manufacturer"].string!
+                    let cost = result["cost_in_credits"].string!
+                    let length = result["length"].string!
+                    let starshipClass = result["starship_class"].string!
+                    let crew = result["crew"].string!
+                    let starship = Starship(name: name, make: make, cost: cost, length: length, starshipClass: starshipClass, crew: crew)
+                    starships.append(starship)
+                }
+            }
         }
     case .Vehicle:
         if vehicleJSON == JSON.null {
@@ -63,13 +104,22 @@ func createJSON(json: JSON, resource: resourceType) {
         }
         if let url = json["next"].string {
             getJSON(resource: resource, url: url)
+        } else {
+            if let results = vehicleJSON["results"].array {
+                for result in results {
+                    let name = result["name"].string!
+                    let make = result["manufacturer"].string!
+                    let cost = result["cost_in_credits"].string!
+                    let length = result["length"].string!
+                    let vehicleClass = result["vehicle_class"].string!
+                    let crew = result["crew"].string!
+                    let vehicle = Vehicle(name: name, make: make, cost: cost, length: length, vehicleClass: vehicleClass, crew: crew)
+                    vehicles.append(vehicle)
+                }
+            }
         }
     }
 }
-
-public var characterJSON: JSON = JSON.null
-public var starshipJSON: JSON = JSON.null
-public var vehicleJSON: JSON = JSON.null
 
 func getJSON(resource: resourceType, url: URLConvertible? = nil) {
     if url != nil {
