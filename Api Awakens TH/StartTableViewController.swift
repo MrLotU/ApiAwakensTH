@@ -21,8 +21,18 @@ class StartTableViewController: UITableViewController {
         getJSON(resource: .Vehicle)
     }
     
+    
+    
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        navigationController?.setNavigationBarHidden(true, animated: false)
+        for cell in tableView.visibleCells {
+            cell.isHighlighted = false
+            cell.isSelected = false
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -59,17 +69,19 @@ class StartTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return UIScreen.main.bounds.height/3
+        return view.bounds.height/3
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         switch categories[indexPath.row] {
         case "Characters":
-            print(characters)
+            self.performSegue(withIdentifier: "showDetail", sender: resourceType.Character)
         case "Vehicles":
-            print(vehicles)
+            self.performSegue(withIdentifier: "showDetail", sender: resourceType.Vehicle)
+        case "Starships":
+            self.performSegue(withIdentifier: "showDetail", sender: resourceType.Starship)
         default:
-            print(starships)
+            print("Something went wrong")
         }
 
     }
@@ -78,8 +90,10 @@ class StartTableViewController: UITableViewController {
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        if segue.identifier == "showDetail" {
+            let detailVC = segue.destination as! DetailTableViewController
+            detailVC.category = sender as! resourceType
+        }
     }
 
 }

@@ -10,16 +10,19 @@ import UIKit
 
 class DetailTableViewController: UITableViewController {
     
-    var category: resourceType? = nil
+    var category: resourceType = .null
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        print("Category: \(category.rawValue)")
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        navigationController?.setNavigationBarHidden(false, animated: false)
     }
 
     override func didReceiveMemoryWarning() {

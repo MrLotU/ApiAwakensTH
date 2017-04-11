@@ -15,13 +15,14 @@ public var starshipJSON: JSON = JSON.null
 public var vehicleJSON: JSON = JSON.null
 
 enum resourceType {
-    case Character, Vehicle, Starship
+    case Character, Vehicle, Starship, null
     
     var rawValue: String{
         switch self {
         case .Character: return "people"
         case .Vehicle: return "vehicles"
         case .Starship: return "starships"
+        case .null: return "null"
         }
     }
 }
@@ -118,6 +119,7 @@ func createJSON(json: JSON, resource: resourceType) {
                 }
             }
         }
+    default: break
     }
 }
 
