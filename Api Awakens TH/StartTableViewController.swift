@@ -34,6 +34,10 @@ class StartTableViewController: UITableViewController {
             cell.isSelected = false
         }
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        tableView.scrollToRow(at: IndexPath(row: 2, section: 0) , at: .bottom, animated: false)
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -85,10 +89,7 @@ class StartTableViewController: UITableViewController {
         }
 
     }
- 
     // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showDetail" {
             let detailVC = segue.destination as! DetailTableViewController
