@@ -10,6 +10,9 @@ import UIKit
 
 class ConversionTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var title: UILabel!
+    @IBOutlet weak var value: UILabel!
+    @IBOutlet weak var switcher: UISegmentedControl!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

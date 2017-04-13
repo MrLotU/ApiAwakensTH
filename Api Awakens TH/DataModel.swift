@@ -49,7 +49,8 @@ func createJSON(json: JSON, resource: resourceType) {
                     let birthYear = result["birth_year"].string!
                     let hairColor = result["hair_color"].string!
                     let height = result["height"].string!
-                    let homeworld = result["homeworld"].string!
+                    let homeworld = ""
+                    let eyeColor = result["eye_color"].string!
                     var species: [String] = []
                     if let speciesArray = result["species"].arrayObject {
                         species = speciesArray.map {"\($0)"}
@@ -62,7 +63,8 @@ func createJSON(json: JSON, resource: resourceType) {
                     if let vehiclesArray = result["vehicles"].arrayObject {
                         vehicles = vehiclesArray.map {"\($0)"}
                     }
-                    let character = Character(name: name, birthYear: birthYear, hairColor: hairColor, height: height, homeworld: homeworld, species: species, starships: starships, vehicles: vehicles)
+                    let character = Character(name: name, birthYear: birthYear, hairColor: hairColor, height: height, homeworld: homeworld, eyeColor: eyeColor, species: species, starships: starships, vehicles: vehicles)
+                    getPlanet(fromUrl: result["homeworld"].string!, character: character)
                     characters.append(character)
                 }
             }
@@ -141,3 +143,23 @@ func getJSON(resource: resourceType, url: URLConvertible? = nil) {
         }
     }
 }
+
+
+
+func getPlanet(fromUrl url: URLConvertible, character: Character) {
+    Alamofire.request(url).responseJSON {
+        (responseData) -> Void in
+        if responseData.result.value != nil {
+            let json = JSON(responseData.result.value!)
+            let name = json["name"].string!
+            character.homeworld = name
+        }
+    }
+}
+
+
+
+
+
+
+

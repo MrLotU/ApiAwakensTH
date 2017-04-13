@@ -10,6 +10,8 @@ import UIKit
 
 class FirstLastTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var smallest: UILabel!
+    @IBOutlet weak var largest: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

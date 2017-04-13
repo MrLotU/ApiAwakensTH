@@ -21,8 +21,6 @@ class StartTableViewController: UITableViewController {
         getJSON(resource: .Vehicle)
     }
     
-    
-    
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
     }
@@ -89,6 +87,7 @@ class StartTableViewController: UITableViewController {
         }
 
     }
+    
     // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showDetail" {

@@ -11,10 +11,17 @@ import UIKit
 class DetailTableViewController: UITableViewController {
     
     var category: resourceType = .null
+    var arrayIndex = 0
 
     override func viewDidLoad() {
         super.viewDidLoad()
         print("Category: \(category.rawValue)")
+        switch category {
+        case .Character: self.title = "Characters"
+        case .Starship: self.title = "Starships"
+        case .Vehicle: self.title = "Vehicles"
+        default: self.title = ""
+        }
         
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -24,6 +31,10 @@ class DetailTableViewController: UITableViewController {
     }
     override func viewWillAppear(_ animated: Bool) {
         navigationController?.setNavigationBarHidden(false, animated: false)
+    }
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
     }
 
     override func didReceiveMemoryWarning() {
@@ -39,18 +50,62 @@ class DetailTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 0
+        return 8
     }
-
-    /*
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
-
-        return cell
+        switch category {
+        case .Character:
+            if indexPath.row == 0 {
+                let cell = tableView.dequeueReusableCell(withIdentifier: "Name Cell", for: indexPath) as! NameTableViewCell
+                cell.label.text = characters[arrayIndex].name
+                return cell
+            } else if indexPath.row == 1 {
+                let cell = tableView.dequeueReusableCell(withIdentifier: "Detail Cell", for: indexPath) as! DetailTableViewCell
+                cell.title.text = "Born"
+                cell.value.text = characters[arrayIndex].birthYear
+                return cell
+            } else if indexPath.row == 2 {
+                let cell = tableView.dequeueReusableCell(withIdentifier: "Detail Cell", for: indexPath) as! DetailTableViewCell
+                cell.title.text = "Home"
+                cell.value.text = characters[arrayIndex].homeworld
+                return cell
+            } else if indexPath.row == 3 {
+                let cell = tableView.dequeueReusableCell(withIdentifier: "Conversion Cell", for: indexPath) as! ConversionTableViewCell
+                cell.title.text = "Height"
+                cell.value.text = characters[arrayIndex].height
+                cell.switcher.setTitle("English", forSegmentAt: 0)
+                cell.switcher.setTitle("Metric", forSegmentAt: 1)
+                return cell
+            } else if indexPath.row == 4 {
+                let cell = tableView.dequeueReusableCell(withIdentifier: "Detail Cell", for: indexPath) as! DetailTableViewCell
+                cell.title.text = "Eyes"
+                cell.value.text = characters[arrayIndex].eyeColor
+                return cell
+            } else if indexPath.row == 5 {
+                let cell = tableView.dequeueReusableCell(withIdentifier: "Detail Cell", for: indexPath) as! DetailTableViewCell
+                cell.title.text = "Hair"
+                cell.value.text = characters[arrayIndex].hairColor
+                return cell
+            } else if indexPath.row == 6 {
+                let cell = tableView.dequeueReusableCell(withIdentifier: "Picker Cell", for: indexPath) as! PickerTableViewCell
+                //TODO: Add picker data
+                return cell
+            } else if indexPath.row == 7 {
+                let cell = tableView.dequeueReusableCell(withIdentifier: "FirstLast Cell", for: indexPath) as! FirstLastTableViewCell
+                //TODO: Fix sorting stuff
+//                cell.smallest.text = characters.map { $0.height < $1.height }.height
+//                cell.
+                return cell
+            }
+        case .Starship: break
+        case .Vehicle: break
+        case .null: break
+        }
+        return UITableViewCell()
     }
-    */
+    
+ 
 
     /*
     // Override to support conditional editing of the table view.
@@ -96,5 +151,4 @@ class DetailTableViewController: UITableViewController {
         // Pass the selected object to the new view controller.
     }
     */
-
 }

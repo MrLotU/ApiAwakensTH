@@ -10,6 +10,7 @@ import UIKit
 
 class NameTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var label: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -17,7 +18,7 @@ class NameTableViewCell: UITableViewCell {
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
+        // Do a barrel roll
         // Configure the view for the selected state
     }
 
