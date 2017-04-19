@@ -75,6 +75,16 @@ class StartTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if characterJSON == JSON.null {
+            getJSON(resource: .Character)
+            return
+        } else if vehicleJSON == JSON.null {
+            getJSON(resource: .Vehicle)
+            return
+        } else if starshipJSON == JSON.null {
+            getJSON(resource: .Starship)
+            return
+        }
         switch categories[indexPath.row] {
         case "Characters":
             self.performSegue(withIdentifier: "showDetail", sender: resourceType.Character)
@@ -91,7 +101,7 @@ class StartTableViewController: UITableViewController {
     // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showDetail" {
-            let detailVC = segue.destination as! DetailTableViewController
+            let detailVC = segue.destination as! DetailViewController
             detailVC.category = sender as! resourceType
         }
     }

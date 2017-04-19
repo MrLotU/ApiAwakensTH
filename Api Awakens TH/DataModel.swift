@@ -17,12 +17,20 @@ public var vehicleJSON: JSON = JSON.null
 enum resourceType {
     case Character, Vehicle, Starship, null
     
-    var rawValue: String{
+    var urlValue: String {
         switch self {
         case .Character: return "people"
         case .Vehicle: return "vehicles"
         case .Starship: return "starships"
         case .null: return "null"
+        }
+    }
+    var rawValue: String {
+        switch  self {
+        case .Character: return "Characters"
+        case .Vehicle: return "Vehicles"
+        case .Starship: return "Starships"
+        case .null: return "null, how did you even get this?"
         }
     }
 }
@@ -135,7 +143,7 @@ func getJSON(resource: resourceType, url: URLConvertible? = nil) {
             }
         }
     } else {
-        Alamofire.request("http://swapi.co/api/\(resource.rawValue)/").responseJSON { (responseData) -> Void in
+        Alamofire.request("http://swapi.co/api/\(resource.urlValue)/").responseJSON { (responseData) -> Void in
             if((responseData.result.value) != nil) {
                 let json = JSON(responseData.result.value!)
                 createJSON(json: json, resource: resource)
