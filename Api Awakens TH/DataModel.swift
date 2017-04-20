@@ -13,6 +13,9 @@ import SwiftyJSON
 public var characterJSON: JSON = JSON.null
 public var starshipJSON: JSON = JSON.null
 public var vehicleJSON: JSON = JSON.null
+public var exchangeDollarsToCredits: Double = 0.62
+public var exchangeCreditsToDollars: Double = 1.62
+
 
 enum resourceType {
     case Character, Vehicle, Starship, null

@@ -109,14 +109,23 @@
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XLq-7T-Qm8">
+                                        <rect key="frame" x="213" y="15" width="154" height="30"/>
+                                        <state key="normal" title="Change exchange rate">
+                                            <color key="titleColor" red="0.4763126969" green="0.8089286685" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.1058823529" green="0.12549019610000001" blue="0.14117647059999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstItem="Xo0-Uz-8Ad" firstAttribute="top" secondItem="3gH-vP-YYa" secondAttribute="top" id="965-WL-Np7"/>
+                                    <constraint firstAttribute="bottom" secondItem="XLq-7T-Qm8" secondAttribute="bottom" constant="15" id="CLR-2R-HXi"/>
                                     <constraint firstItem="NhT-6M-TJC" firstAttribute="top" secondItem="3gH-vP-YYa" secondAttribute="top" id="CmR-ae-Tig"/>
+                                    <constraint firstAttribute="trailing" secondItem="XLq-7T-Qm8" secondAttribute="trailing" constant="8" id="Ik4-If-fO7"/>
                                     <constraint firstItem="Xo0-Uz-8Ad" firstAttribute="leading" secondItem="3gH-vP-YYa" secondAttribute="leading" constant="100" id="Oqn-Rf-Snw"/>
                                     <constraint firstAttribute="height" constant="60" id="SAv-rk-JsW"/>
                                     <constraint firstAttribute="bottom" secondItem="LjY-Wd-Mhx" secondAttribute="bottom" constant="8" id="Zxc-v9-bwd"/>
+                                    <constraint firstItem="XLq-7T-Qm8" firstAttribute="top" secondItem="3gH-vP-YYa" secondAttribute="top" constant="15" id="fOA-dg-cAa"/>
                                     <constraint firstAttribute="bottom" secondItem="sDM-we-tec" secondAttribute="bottom" constant="8" id="hgx-fK-N6j"/>
                                     <constraint firstItem="NhT-6M-TJC" firstAttribute="leading" secondItem="3gH-vP-YYa" secondAttribute="leading" constant="8" id="on9-Ek-o8K"/>
                                     <constraint firstItem="sDM-we-tec" firstAttribute="leading" secondItem="3gH-vP-YYa" secondAttribute="leading" constant="100" id="q91-iv-66o"/>
@@ -265,15 +274,65 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="changeExchangeRateButton" destination="XLq-7T-Qm8" id="UQD-fG-N8Z"/>
                         <outlet property="largestLabel" destination="sDM-we-tec" id="pIg-Mf-dLf"/>
                         <outlet property="picker" destination="NER-T1-Ln5" id="ynR-sq-Kxr"/>
                         <outlet property="smallestLabel" destination="Xo0-Uz-8Ad" id="5Cx-Kb-OcJ"/>
                         <outlet property="tableView" destination="ra7-oJ-4Uw" id="4tq-jQ-mKc"/>
+                        <segue destination="9Sf-6V-b7t" kind="presentation" identifier="changeExchange" id="SXE-0u-p5C"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Muc-vI-2VQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2549.5999999999999" y="129.98500749625188"/>
+        </scene>
+        <!--Keyboard View Controller-->
+        <scene sceneID="NAp-nl-ajX">
+            <objects>
+                <viewController id="9Sf-6V-b7t" customClass="KeyboardViewController" customModule="Api_Awakens_TH" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Zhd-Sc-2de"/>
+                        <viewControllerLayoutGuide type="bottom" id="Oa9-hk-Yiz"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="i3l-L6-pjF">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="USD to Credits Exchange rate" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OUn-n3-ZAO">
+                                <rect key="frame" x="16" y="318" width="343" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="decimalPad"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Mu-Qv-569">
+                                <rect key="frame" x="164" y="356" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Save">
+                                    <color key="titleColor" red="0.4763126969" green="0.8089286685" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                            </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Credits to USD Exchange rate" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7Su-Lv-XPD">
+                                <rect key="frame" x="16" y="280" width="343" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="decimalPad"/>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" red="0.1058823529" green="0.12549019610000001" blue="0.14117647059999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </view>
+                    <connections>
+                        <outlet property="USDToCreditsTextField" destination="OUn-n3-ZAO" id="gdm-eB-Aqb"/>
+                        <outlet property="creditsToUSDTextField" destination="7Su-Lv-XPD" id="jFi-0i-bqN"/>
+                        <outlet property="saveButton" destination="9Mu-Qv-569" id="XQo-4i-7iX"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Z2n-8n-kb2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3320.8000000000002" y="129.98500749625188"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="fSe-cC-byN">

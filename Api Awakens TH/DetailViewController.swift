@@ -14,6 +14,7 @@ class DetailViewController: UIViewController, UITableViewDataSource, UITableView
     @IBOutlet weak var smallestLabel: UILabel!
     @IBOutlet weak var picker: UIPickerView!
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var changeExchangeRateButton: UIButton!
     
     var arrayIndex = 0
     var category: resourceType = .null
@@ -25,6 +26,7 @@ class DetailViewController: UIViewController, UITableViewDataSource, UITableView
         picker.delegate = self
         picker.dataSource = self
         self.title = category.rawValue
+        changeExchangeRateButton.addTarget(self, action: #selector(changeExchangeRate), for: .touchUpInside)
         switch category {
         case .Character:
             largestLabel.text = characters.sorted(by: { (first, last) -> Bool in
@@ -152,16 +154,19 @@ class DetailViewController: UIViewController, UITableViewDataSource, UITableView
             if indexPath.row == 0 {
                 let cell = tableView.dequeueReusableCell(withIdentifier: "Name Cell", for: indexPath) as! NameTableViewCell
                 cell.label.text = characters[arrayIndex].name
+                cell.selectionStyle = .none
                 return cell
             } else if indexPath.row == 1 {
                 let cell = tableView.dequeueReusableCell(withIdentifier: "Detail Cell", for: indexPath) as! DetailTableViewCell
                 cell.title.text = "Born"
                 cell.value.text = characters[arrayIndex].birthYear
+                cell.selectionStyle = .none
                 return cell
             } else if indexPath.row == 2 {
                 let cell = tableView.dequeueReusableCell(withIdentifier: "Detail Cell", for: indexPath) as! DetailTableViewCell
                 cell.title.text = "Home"
                 cell.value.text = characters[arrayIndex].homeworld
+                cell.selectionStyle = .none
                 return cell
             } else if indexPath.row == 3 {
                 let cell = tableView.dequeueReusableCell(withIdentifier: "Conversion Cell", for: indexPath) as! ConversionTableViewCell
@@ -174,30 +179,36 @@ class DetailViewController: UIViewController, UITableViewDataSource, UITableView
                 cell.switchCase = .Size
                 cell.switcher.setTitle("Metric", forSegmentAt: 0)
                 cell.switcher.setTitle("English", forSegmentAt: 1)
+                cell.selectionStyle = .none
                 return cell
             } else if indexPath.row == 4 {
                 let cell = tableView.dequeueReusableCell(withIdentifier: "Detail Cell", for: indexPath) as! DetailTableViewCell
                 cell.title.text = "Eyes"
                 cell.value.text = characters[arrayIndex].eyeColor
+                cell.selectionStyle = .none
                 return cell
             } else if indexPath.row == 5 {
                 let cell = tableView.dequeueReusableCell(withIdentifier: "Detail Cell", for: indexPath) as! DetailTableViewCell
                 cell.title.text = "Hair"
                 cell.value.text = characters[arrayIndex].hairColor
+                cell.selectionStyle = .none
                 return cell
             } else {
                 let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
+                cell.selectionStyle = .none
                 return cell
             }
         case .Starship:
             if indexPath.row == 0 {
                 let cell = tableView.dequeueReusableCell(withIdentifier: "Name Cell", for: indexPath) as! NameTableViewCell
                 cell.label.text = starships[arrayIndex].name
+                cell.selectionStyle = .none
                 return cell
             } else if indexPath.row == 1 {
                 let cell = tableView.dequeueReusableCell(withIdentifier: "Detail Cell", for: indexPath) as! DetailTableViewCell
                 cell.title.text = "Make"
                 cell.value.text = starships[arrayIndex].make
+                cell.selectionStyle = .none
                 return cell
             } else if indexPath.row == 2 {
                 let cell = tableView.dequeueReusableCell(withIdentifier: "Conversion Cell", for: indexPath) as! ConversionTableViewCell
@@ -210,6 +221,7 @@ class DetailViewController: UIViewController, UITableViewDataSource, UITableView
                 cell.switchCase = .Cost
                 cell.switcher.setTitle("Credits", forSegmentAt: 0)
                 cell.switcher.setTitle("USD", forSegmentAt: 1)
+                cell.selectionStyle = .none
                 return cell
             } else if indexPath.row == 3 {
                 let cell = tableView.dequeueReusableCell(withIdentifier: "Conversion Cell", for: indexPath) as! ConversionTableViewCell
@@ -222,30 +234,36 @@ class DetailViewController: UIViewController, UITableViewDataSource, UITableView
                 cell.switchCase = .Size
                 cell.switcher.setTitle("Metric", forSegmentAt: 0)
                 cell.switcher.setTitle("English", forSegmentAt: 1)
+                cell.selectionStyle = .none
                 return cell
             } else if indexPath.row == 4 {
                 let cell = tableView.dequeueReusableCell(withIdentifier: "Detail Cell", for: indexPath) as! DetailTableViewCell
                 cell.title.text = "Class"
                 cell.value.text = starships[arrayIndex].starshipClass
+                cell.selectionStyle = .none
                 return cell
             } else if indexPath.row == 5 {
                 let cell = tableView.dequeueReusableCell(withIdentifier: "Detail Cell", for: indexPath) as! DetailTableViewCell
                 cell.title.text = "Crew"
                 cell.value.text = starships[arrayIndex].crew
+                cell.selectionStyle = .none
                 return cell
             } else {
                 let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
+                cell.selectionStyle = .none
                 return cell
             }
         case .Vehicle:
             if indexPath.row == 0 {
                 let cell = tableView.dequeueReusableCell(withIdentifier: "Name Cell", for: indexPath) as! NameTableViewCell
                 cell.label.text = vehicles[arrayIndex].name
+                cell.selectionStyle = .none
                 return cell
             } else if indexPath.row == 1 {
                 let cell = tableView.dequeueReusableCell(withIdentifier: "Detail Cell", for: indexPath) as! DetailTableViewCell
                 cell.title.text = "Make"
                 cell.value.text = vehicles[arrayIndex].make
+                cell.selectionStyle = .none
                 return cell
             } else if indexPath.row == 2 {
                 let cell = tableView.dequeueReusableCell(withIdentifier: "Conversion Cell", for: indexPath) as! ConversionTableViewCell
@@ -258,6 +276,7 @@ class DetailViewController: UIViewController, UITableViewDataSource, UITableView
                 }
                 cell.switcher.setTitle("Credits", forSegmentAt: 0)
                 cell.switcher.setTitle("USD", forSegmentAt: 1)
+                cell.selectionStyle = .none
                 return cell
             } else if indexPath.row == 3 {
                 let cell = tableView.dequeueReusableCell(withIdentifier: "Conversion Cell", for: indexPath) as! ConversionTableViewCell
@@ -270,23 +289,28 @@ class DetailViewController: UIViewController, UITableViewDataSource, UITableView
                 }
                 cell.switcher.setTitle("Metric", forSegmentAt: 0)
                 cell.switcher.setTitle("English", forSegmentAt: 1)
+                cell.selectionStyle = .none
                 return cell
             } else if indexPath.row == 4 {
                 let cell = tableView.dequeueReusableCell(withIdentifier: "Detail Cell", for: indexPath) as! DetailTableViewCell
                 cell.title.text = "Class"
                 cell.value.text = vehicles[arrayIndex].vehicleClass
+                cell.selectionStyle = .none
                 return cell
             } else if indexPath.row == 5 {
                 let cell = tableView.dequeueReusableCell(withIdentifier: "Detail Cell", for: indexPath) as! DetailTableViewCell
                 cell.title.text = "Crew"
                 cell.value.text = vehicles[arrayIndex].crew
+                cell.selectionStyle = .none
                 return cell
             } else {
                 let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
+                cell.selectionStyle = .none
                 return cell
             }
         case .null:
             let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
+            cell.selectionStyle = .none
             return cell
         }
     }
@@ -294,4 +318,9 @@ class DetailViewController: UIViewController, UITableViewDataSource, UITableView
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 6
     }
+    
+    func changeExchangeRate() {
+        performSegue(withIdentifier: "changeExchange", sender: nil)
+    }
+    
 }

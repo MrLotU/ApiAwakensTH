@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		083D28151E781575003E8D1B /* Character.swift in Sources */ = {isa = PBXBuildFile; fileRef = 083D28141E781575003E8D1B /* Character.swift */; };
+		0860FFAF1EA8FEFC00863136 /* KeyboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0860FFAE1EA8FEFC00863136 /* KeyboardViewController.swift */; };
 		087109111E65BA3E0044C5E4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 087109101E65BA3E0044C5E4 /* AppDelegate.swift */; };
 		087109161E65BA3E0044C5E4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 087109141E65BA3E0044C5E4 /* Main.storyboard */; };
 		087109181E65BA3E0044C5E4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 087109171E65BA3E0044C5E4 /* Assets.xcassets */; };
@@ -27,6 +28,7 @@
 /* Begin PBXFileReference section */
 		00F50CABC3800CCD85B1DF18 /* Pods-Api Awakens TH.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Api Awakens TH.release.xcconfig"; path = "Pods/Target Support Files/Pods-Api Awakens TH/Pods-Api Awakens TH.release.xcconfig"; sourceTree = "<group>"; };
 		083D28141E781575003E8D1B /* Character.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Character.swift; sourceTree = "<group>"; };
+		0860FFAE1EA8FEFC00863136 /* KeyboardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardViewController.swift; sourceTree = "<group>"; };
 		0871090D1E65BA3E0044C5E4 /* Api Awakens TH.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Api Awakens TH.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		087109101E65BA3E0044C5E4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		087109151E65BA3E0044C5E4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -103,6 +105,7 @@
 			children = (
 				087109221E65C4720044C5E4 /* StartTableViewController.swift */,
 				08E1ADFC1EA23B6C0099FC53 /* DetailViewController.swift */,
+				0860FFAE1EA8FEFC00863136 /* KeyboardViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -278,6 +281,7 @@
 				087109111E65BA3E0044C5E4 /* AppDelegate.swift in Sources */,
 				08D13A271E7AC9EB00CF4E3B /* Starship.swift in Sources */,
 				08B4E1C71E9D0763005C63ED /* ConversionTableViewCell.swift in Sources */,
+				0860FFAF1EA8FEFC00863136 /* KeyboardViewController.swift in Sources */,
 				08D13A251E7AC54200CF4E3B /* Vehicle.swift in Sources */,
 				08D13A331E7ADE4100CF4E3B /* NameTableViewCell.swift in Sources */,
 				08B4E1C51E9D0753005C63ED /* DetailTableViewCell.swift in Sources */,
