@@ -21,7 +21,7 @@ class ConversionTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        switcher.addTarget(self, action: #selector(converter), for: .touchUpInside)
+        switcher.addTarget(self, action: #selector(converter), for: .valueChanged)
     }
     
     func converter() {
@@ -30,24 +30,33 @@ class ConversionTableViewCell: UITableViewCell {
             switch switcher.selectedSegmentIndex {
             /*1 Credit is 0,62 USD and 1 USD is 1,62 Credits( http://www.swtor.com/community/showthread.php?t=442915 )*/
             case 0/*Credits*/:
-                let USD = Double(value.text!)!
-                let credits = USD * 0.62
-                value.text = "\(credits)"
+                if let numberString = value.text?.replacingOccurrences(of: " USD", with: "") {
+                    let USD = Double(numberString)!
+                    let credits = USD * 0.62
+                    value.text = "\(round(credits*100)/100) Credits"
+                }
             default/*USD*/:
-                let credits = Double(value.text!)!
-                let USD = credits * 0.62
-                value.text = "\(USD)"
+                if let numberString = value.text?.replacingOccurrences(of: " Credits", with: "") {
+                    let credits = Double(numberString)!
+                    let USD = credits * 1.62
+                    value.text = "\(round(USD*100)/100) USD"
+                }
             }
         case .Size:
             switch switcher.selectedSegmentIndex {
             case 0/*Metric*/:
-                let inches = Double(value.text!)!
-                let meters = inches * 2.54
-                value.text = "\(meters)"
+                if let numberString = value.text?.replacingOccurrences(of: " Inch", with: "") {
+                    let inches = Double(numberString)!
+                    let meters = inches * 0.0254
+                    value.text = "\(round(meters*100)/100) m"
+                }
             default/*English*/:
-                let meters = Double(value.text!)!
-                let inches = meters * 0.393700787
-                value.text = "\(inches)"
+                if let numberString = value.text?.replacingOccurrences(of: " m", with: "") {
+                    if let meters = Double(numberString) {
+                        let inches = meters * 39.3700787
+                        value.text = "\(round(inches*100)/100) Inch"
+                    }
+                }
             }
         case .null: break
         }

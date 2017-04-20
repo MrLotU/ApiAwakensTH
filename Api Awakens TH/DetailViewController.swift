@@ -25,6 +25,49 @@ class DetailViewController: UIViewController, UITableViewDataSource, UITableView
         picker.delegate = self
         picker.dataSource = self
         self.title = category.rawValue
+        switch category {
+        case .Character:
+            largestLabel.text = characters.sorted(by: { (first, last) -> Bool in
+                if let firstHeight = Int(first.height), let lastHeight = Int(last.height) {
+                    return firstHeight > lastHeight
+                } else {
+                    return first.height > last.height
+                }
+            }).first(where: { (char) -> Bool in
+                char.height != "unknown"
+            })!.name
+            smallestLabel.text = characters.sorted(by: { (first, last) -> Bool in
+                if let firstHeight = Int(first.height), let lastHeight = Int(last.height) {
+                    return firstHeight < lastHeight
+                } else {
+                    return first.height < last.height
+                }
+            }).first(where: { (char) -> Bool in
+                char.height != "unknown"
+            })!.name
+        case .Starship:
+            largestLabel.text = starships.sorted(by: { (first, last) -> Bool in
+                if let firstHeight = Int(first.length), let lastHeight = Int(last.length) {
+                    return firstHeight > lastHeight
+                } else {
+                    return first.length > last.length
+                }
+            }).first(where: { (ship) -> Bool in
+                ship.length != "unknown"
+            })!.name
+            smallestLabel.text = starships.sorted(by: { (first, last) -> Bool in
+                if let firstHeight = Int(first.length), let lastHeight = Int(last.length) {
+                    return firstHeight < lastHeight
+                } else {
+                    return first.length < last.length
+                }
+            }).first(where: { (ship) -> Bool in
+                ship.length != "unknown"
+                
+            })!.name
+        case .Vehicle: break
+        case .null: break
+        }
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -104,7 +147,12 @@ class DetailViewController: UIViewController, UITableViewDataSource, UITableView
             } else if indexPath.row == 3 {
                 let cell = tableView.dequeueReusableCell(withIdentifier: "Conversion Cell", for: indexPath) as! ConversionTableViewCell
                 cell.title.text = "Height"
-                cell.value.text = characters[arrayIndex].height
+                if let height = Double(characters[arrayIndex].height) {
+                    cell.value.text = "\(height / 100) m"
+                } else {
+                    cell.value.text = characters[arrayIndex].height
+                }
+                cell.switchCase = .Size
                 cell.switcher.setTitle("Metric", forSegmentAt: 0)
                 cell.switcher.setTitle("English", forSegmentAt: 1)
                 return cell
@@ -135,14 +183,16 @@ class DetailViewController: UIViewController, UITableViewDataSource, UITableView
             } else if indexPath.row == 2 {
                 let cell = tableView.dequeueReusableCell(withIdentifier: "Conversion Cell", for: indexPath) as! ConversionTableViewCell
                 cell.title.text = "Cost"
-                cell.value.text = starships[arrayIndex].cost
+                cell.value.text = starships[arrayIndex].cost + " Credits"
+                cell.switchCase = .Cost
                 cell.switcher.setTitle("Credits", forSegmentAt: 0)
                 cell.switcher.setTitle("USD", forSegmentAt: 1)
                 return cell
             } else if indexPath.row == 3 {
                 let cell = tableView.dequeueReusableCell(withIdentifier: "Conversion Cell", for: indexPath) as! ConversionTableViewCell
                 cell.title.text = "Length"
-                cell.value.text = starships[arrayIndex].length
+                cell.value.text = starships[arrayIndex].length + " m"
+                cell.switchCase = .Size
                 cell.switcher.setTitle("Metric", forSegmentAt: 0)
                 cell.switcher.setTitle("English", forSegmentAt: 1)
                 return cell
@@ -173,14 +223,16 @@ class DetailViewController: UIViewController, UITableViewDataSource, UITableView
             } else if indexPath.row == 2 {
                 let cell = tableView.dequeueReusableCell(withIdentifier: "Conversion Cell", for: indexPath) as! ConversionTableViewCell
                 cell.title.text = "Cost"
-                cell.value.text = vehicles[arrayIndex].cost
+                cell.switchCase = .Cost
+                cell.value.text = vehicles[arrayIndex].cost + " Credits"
                 cell.switcher.setTitle("Credits", forSegmentAt: 0)
                 cell.switcher.setTitle("USD", forSegmentAt: 1)
                 return cell
             } else if indexPath.row == 3 {
                 let cell = tableView.dequeueReusableCell(withIdentifier: "Conversion Cell", for: indexPath) as! ConversionTableViewCell
                 cell.title.text = "Length"
-                cell.value.text = vehicles[arrayIndex].length
+                cell.switchCase = .Size
+                cell.value.text = vehicles[arrayIndex].length + " m"
                 cell.switcher.setTitle("Metric", forSegmentAt: 0)
                 cell.switcher.setTitle("English", forSegmentAt: 1)
                 return cell
