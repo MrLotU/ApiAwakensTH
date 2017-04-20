@@ -28,7 +28,7 @@ class DetailViewController: UIViewController, UITableViewDataSource, UITableView
         switch category {
         case .Character:
             largestLabel.text = characters.sorted(by: { (first, last) -> Bool in
-                if let firstHeight = Int(first.height), let lastHeight = Int(last.height) {
+                if let firstHeight = Double(first.height), let lastHeight = Double(last.height) {
                     return firstHeight > lastHeight
                 } else {
                     return first.height > last.height
@@ -37,7 +37,7 @@ class DetailViewController: UIViewController, UITableViewDataSource, UITableView
                 char.height != "unknown"
             })!.name
             smallestLabel.text = characters.sorted(by: { (first, last) -> Bool in
-                if let firstHeight = Int(first.height), let lastHeight = Int(last.height) {
+                if let firstHeight = Double(first.height), let lastHeight = Double(last.height) {
                     return firstHeight < lastHeight
                 } else {
                     return first.height < last.height
@@ -47,7 +47,7 @@ class DetailViewController: UIViewController, UITableViewDataSource, UITableView
             })!.name
         case .Starship:
             largestLabel.text = starships.sorted(by: { (first, last) -> Bool in
-                if let firstHeight = Int(first.length), let lastHeight = Int(last.length) {
+                if let firstHeight = Double(first.length), let lastHeight = Double(last.length) {
                     return firstHeight > lastHeight
                 } else {
                     return first.length > last.length
@@ -56,7 +56,7 @@ class DetailViewController: UIViewController, UITableViewDataSource, UITableView
                 ship.length != "unknown"
             })!.name
             smallestLabel.text = starships.sorted(by: { (first, last) -> Bool in
-                if let firstHeight = Int(first.length), let lastHeight = Int(last.length) {
+                if let firstHeight = Double(first.length), let lastHeight = Double(last.length) {
                     return firstHeight < lastHeight
                 } else {
                     return first.length < last.length
@@ -65,7 +65,26 @@ class DetailViewController: UIViewController, UITableViewDataSource, UITableView
                 ship.length != "unknown"
                 
             })!.name
-        case .Vehicle: break
+        case .Vehicle:
+            largestLabel.text = vehicles.sorted(by: { (first, last) -> Bool in
+                if let firstHeight = Double(first.length), let lastHeight = Double(last.length) {
+                    return firstHeight > lastHeight
+                } else {
+                    return first.length > last.length
+                }
+            }).first(where: { (vehicle) -> Bool in
+                vehicle.length != "unknown"
+            })!.name
+            smallestLabel.text = vehicles.sorted(by: { (first, last) -> Bool in
+                if let firstHeight = Double(first.length), let lastHeight = Double(last.length) {
+                    return firstHeight < lastHeight
+                } else {
+                    return first.length < last.length
+                }
+            }).first(where: { (vehicle) -> Bool in
+                vehicle.length != "unknown"
+                
+            })!.name
         case .null: break
         }
     }
@@ -183,7 +202,11 @@ class DetailViewController: UIViewController, UITableViewDataSource, UITableView
             } else if indexPath.row == 2 {
                 let cell = tableView.dequeueReusableCell(withIdentifier: "Conversion Cell", for: indexPath) as! ConversionTableViewCell
                 cell.title.text = "Cost"
-                cell.value.text = starships[arrayIndex].cost + " Credits"
+                if let cost = Double(starships[arrayIndex].cost) {
+                    cell.value.text = "\(cost)" + " Credits"
+                } else {
+                    cell.value.text = starships[arrayIndex].cost
+                }
                 cell.switchCase = .Cost
                 cell.switcher.setTitle("Credits", forSegmentAt: 0)
                 cell.switcher.setTitle("USD", forSegmentAt: 1)
@@ -191,7 +214,11 @@ class DetailViewController: UIViewController, UITableViewDataSource, UITableView
             } else if indexPath.row == 3 {
                 let cell = tableView.dequeueReusableCell(withIdentifier: "Conversion Cell", for: indexPath) as! ConversionTableViewCell
                 cell.title.text = "Length"
-                cell.value.text = starships[arrayIndex].length + " m"
+                if let length = Double(starships[arrayIndex].length) {
+                    cell.value.text = "\(length)" + " m"
+                } else {
+                    cell.value.text = starships[arrayIndex].length
+                }
                 cell.switchCase = .Size
                 cell.switcher.setTitle("Metric", forSegmentAt: 0)
                 cell.switcher.setTitle("English", forSegmentAt: 1)
@@ -224,7 +251,11 @@ class DetailViewController: UIViewController, UITableViewDataSource, UITableView
                 let cell = tableView.dequeueReusableCell(withIdentifier: "Conversion Cell", for: indexPath) as! ConversionTableViewCell
                 cell.title.text = "Cost"
                 cell.switchCase = .Cost
-                cell.value.text = vehicles[arrayIndex].cost + " Credits"
+                if let cost = Double(vehicles[arrayIndex].cost) {
+                    cell.value.text = "\(cost)" + " Credits"
+                } else {
+                    cell.value.text = vehicles[arrayIndex].cost
+                }
                 cell.switcher.setTitle("Credits", forSegmentAt: 0)
                 cell.switcher.setTitle("USD", forSegmentAt: 1)
                 return cell
@@ -232,7 +263,11 @@ class DetailViewController: UIViewController, UITableViewDataSource, UITableView
                 let cell = tableView.dequeueReusableCell(withIdentifier: "Conversion Cell", for: indexPath) as! ConversionTableViewCell
                 cell.title.text = "Length"
                 cell.switchCase = .Size
-                cell.value.text = vehicles[arrayIndex].length + " m"
+                if let length = Double(vehicles[arrayIndex].length) {
+                    cell.value.text = "\(length)" + " m"
+                } else {
+                    cell.value.text = vehicles[arrayIndex].length
+                }
                 cell.switcher.setTitle("Metric", forSegmentAt: 0)
                 cell.switcher.setTitle("English", forSegmentAt: 1)
                 return cell

@@ -31,28 +31,43 @@ class ConversionTableViewCell: UITableViewCell {
             /*1 Credit is 0,62 USD and 1 USD is 1,62 Credits( http://www.swtor.com/community/showthread.php?t=442915 )*/
             case 0/*Credits*/:
                 if let numberString = value.text?.replacingOccurrences(of: " USD", with: "") {
-                    let USD = Double(numberString)!
-                    let credits = USD * 0.62
-                    value.text = "\(round(credits*100)/100) Credits"
+                    if numberString == "unknown" {
+                        value.text = "\(numberString)"
+                    } else {
+                        let USD = Double(numberString)!
+                        let credits = USD * 0.62
+                        value.text = "\(round(credits*100)/100) Credits"
+                    }
                 }
             default/*USD*/:
                 if let numberString = value.text?.replacingOccurrences(of: " Credits", with: "") {
-                    let credits = Double(numberString)!
-                    let USD = credits * 1.62
-                    value.text = "\(round(USD*100)/100) USD"
+                    if numberString == "unknown" {
+                        value.text = "\(numberString)"
+                    } else {
+                        let credits = Double(numberString)!
+                        let USD = credits * 1.62
+                        value.text = "\(round(USD*100)/100) USD"
+                    }
                 }
             }
         case .Size:
             switch switcher.selectedSegmentIndex {
             case 0/*Metric*/:
                 if let numberString = value.text?.replacingOccurrences(of: " Inch", with: "") {
-                    let inches = Double(numberString)!
-                    let meters = inches * 0.0254
-                    value.text = "\(round(meters*100)/100) m"
+                    if numberString == "unknown" {
+                        value.text = "\(numberString)"
+                    } else {
+                        let inches = Double(numberString)!
+                        let meters = inches * 0.0254
+                        value.text = "\(round(meters*100)/100) m"
+                    }
                 }
             default/*English*/:
                 if let numberString = value.text?.replacingOccurrences(of: " m", with: "") {
-                    if let meters = Double(numberString) {
+                    if numberString == "unknown" {
+                        value.text = "\(numberString)"
+                    } else {
+                        let meters = Double(numberString)!
                         let inches = meters * 39.3700787
                         value.text = "\(round(inches*100)/100) Inch"
                     }

@@ -95,9 +95,13 @@ func createJSON(json: JSON, resource: resourceType) {
                     let name = result["name"].string!
                     let make = result["manufacturer"].string!
                     let cost = result["cost_in_credits"].string!
-                    let length = result["length"].string!
+                    var length = result["length"].string!
                     let starshipClass = result["starship_class"].string!
                     let crew = result["crew"].string!
+                    //Ugly solution because this was the only case in the entire API where the length had a , instead of just being all numbers
+                    if name == "Star Destroyer" {
+                        length = length.replacingOccurrences(of: ",", with: "")
+                    }
                     let starship = Starship(name: name, make: make, cost: cost, length: length, starshipClass: starshipClass, crew: crew)
                     starships.append(starship)
                 }
