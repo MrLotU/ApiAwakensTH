@@ -59,12 +59,12 @@ func createJSON(json: JSON, resource: resourceType) {
         } else {
             if let results = characterJSON["results"].array {
                 for result in results {
-                    guard let name = result["name"].string else {return}
-                    guard let birthYear = result["birth_year"].string else {return}
-                    guard let hairColor = result["hair_color"].string else {return}
-                    guard let height = result["height"].string else {return}
-                    guard let homeworld = result["homeworld"].string else {return}
-                    guard let eyeColor = result["eye_color"].string else {return}
+                    guard let name = result["name"].string else {print("Couldnt get Name for Character");return}
+                    guard let birthYear = result["birth_year"].string else {print("Couldnt get BirthYear for \(name)");return}
+                    guard let hairColor = result["hair_color"].string else {print("Couldnt get HairColor for \(name)");return}
+                    guard let height = result["height"].string else {print("Couldnt get Height for \(name)");return}
+                    guard let homeworld = result["homeworld"].string else {print("Couldnt get Homeworld for \(name)");return}
+                    guard let eyeColor = result["eye_color"].string else {print("Couldnt get EyeColor for \(name)");return}
                     var starships: [String] = []
                     if let starshipsArray = result["starships"].arrayObject {
                         starships = starshipsArray.map {"\($0)"}
@@ -95,12 +95,12 @@ func createJSON(json: JSON, resource: resourceType) {
         } else {
             if let results = starshipJSON["results"].array {
                 for result in results {
-                    guard let name = result["name"].string else {return}
-                    guard let make = result["manufacturer"].string else {return}
-                    guard let cost = result["cost_in_credits"].string else {return}
-                    guard var length = result["length"].string else {return}
-                    guard let starshipClass = result["starship_class"].string else {return}
-                    guard let crew = result["crew"].string else {return}
+                    guard let name = result["name"].string else {print("Couldnt get Name for Starship");return}
+                    guard let make = result["manufacturer"].string else {print("Couldnt get Make for \(name)");return}
+                    guard let cost = result["cost_in_credits"].string else {print("Couldnt get Cost for \(name)");return}
+                    guard var length = result["length"].string else {print("Couldnt get Length for \(name)");return}
+                    guard let starshipClass = result["starship_class"].string else {print("Couldnt get StarshipClass for \(name)");return}
+                    guard let crew = result["crew"].string else {print("Couldnt get Crew for \(name)");return}
                     //Ugly solution because this was the only case in the entire API where the length had a , instead of just being all numbers
                     if name == "Star Destroyer" {
                         length = length.replacingOccurrences(of: ",", with: "")
@@ -125,12 +125,12 @@ func createJSON(json: JSON, resource: resourceType) {
         } else {
             if let results = vehicleJSON["results"].array {
                 for result in results {
-                    guard let name = result["name"].string else {return}
-                    guard let make = result["manufacturer"].string else {return}
-                    guard let cost = result["cost_in_credits"].string else {return}
-                    guard let length = result["length"].string else {return}
-                    guard let vehicleClass = result["vehicle_class"].string else {return}
-                    guard let crew = result["crew"].string else {return}
+                    guard let name = result["name"].string else {print("Couldnt get Name for Vehicle");return}
+                    guard let make = result["manufacturer"].string else {print("Couldnt get Make for \(name)");return}
+                    guard let cost = result["cost_in_credits"].string else {print("Couldnt get Cost for \(name)");return}
+                    guard let length = result["length"].string else {print("Couldnt get Length for \(name)");return}
+                    guard let vehicleClass = result["vehicle_class"].string else {print("Couldnt get VehicleClass for \(name)");return}
+                    guard let crew = result["crew"].string else {print("Couldnt get Crew for \(name)");return}
                     let vehicle = Vehicle(name: name, make: make, cost: cost, length: length, vehicleClass: vehicleClass, crew: crew)
                     vehicles.append(vehicle)
                 }

@@ -76,13 +76,13 @@ class StartTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if characterJSON == JSON.null {
-            getJSON(resource: .Character)
+            showAlert(title: "Failed to load all data!", message: "Not all data is loaded! Please check your internet and try again")
             return
         } else if vehicleJSON == JSON.null {
-            getJSON(resource: .Vehicle)
+            showAlert(title: "Failed to load all data!", message: "Not all data is loaded! Please check your internet and try again")
             return
         } else if starshipJSON == JSON.null {
-            getJSON(resource: .Starship)
+            showAlert(title: "Failed to load all data!", message: "Not all data is loaded! Please check your internet and try again")
             return
         }
         switch categories[indexPath.row] {
