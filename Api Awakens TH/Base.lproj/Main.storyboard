@@ -110,7 +110,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XLq-7T-Qm8">
-                                        <rect key="frame" x="213" y="15" width="154" height="30"/>
+                                        <rect key="frame" x="213" y="8" width="154" height="14"/>
                                         <state key="normal" title="Change exchange rate">
                                             <color key="titleColor" red="0.4763126969" green="0.8089286685" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
@@ -118,15 +118,15 @@
                                 </subviews>
                                 <color key="backgroundColor" red="0.1058823529" green="0.12549019610000001" blue="0.14117647059999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
+                                    <constraint firstItem="XLq-7T-Qm8" firstAttribute="top" secondItem="3gH-vP-YYa" secondAttribute="topMargin" id="4MK-0C-Gmu"/>
                                     <constraint firstItem="Xo0-Uz-8Ad" firstAttribute="top" secondItem="3gH-vP-YYa" secondAttribute="top" id="965-WL-Np7"/>
-                                    <constraint firstAttribute="bottom" secondItem="XLq-7T-Qm8" secondAttribute="bottom" constant="15" id="CLR-2R-HXi"/>
                                     <constraint firstItem="NhT-6M-TJC" firstAttribute="top" secondItem="3gH-vP-YYa" secondAttribute="top" id="CmR-ae-Tig"/>
                                     <constraint firstAttribute="trailing" secondItem="XLq-7T-Qm8" secondAttribute="trailing" constant="8" id="Ik4-If-fO7"/>
                                     <constraint firstItem="Xo0-Uz-8Ad" firstAttribute="leading" secondItem="3gH-vP-YYa" secondAttribute="leading" constant="100" id="Oqn-Rf-Snw"/>
                                     <constraint firstAttribute="height" constant="60" id="SAv-rk-JsW"/>
                                     <constraint firstAttribute="bottom" secondItem="LjY-Wd-Mhx" secondAttribute="bottom" constant="8" id="Zxc-v9-bwd"/>
-                                    <constraint firstItem="XLq-7T-Qm8" firstAttribute="top" secondItem="3gH-vP-YYa" secondAttribute="top" constant="15" id="fOA-dg-cAa"/>
                                     <constraint firstAttribute="bottom" secondItem="sDM-we-tec" secondAttribute="bottom" constant="8" id="hgx-fK-N6j"/>
+                                    <constraint firstAttribute="bottomMargin" secondItem="XLq-7T-Qm8" secondAttribute="bottom" constant="30" id="neW-Ck-w28"/>
                                     <constraint firstItem="NhT-6M-TJC" firstAttribute="leading" secondItem="3gH-vP-YYa" secondAttribute="leading" constant="8" id="on9-Ek-o8K"/>
                                     <constraint firstItem="sDM-we-tec" firstAttribute="leading" secondItem="3gH-vP-YYa" secondAttribute="leading" constant="100" id="q91-iv-66o"/>
                                     <constraint firstItem="LjY-Wd-Mhx" firstAttribute="leading" secondItem="3gH-vP-YYa" secondAttribute="leading" constant="8" id="wg2-lc-XcO"/>

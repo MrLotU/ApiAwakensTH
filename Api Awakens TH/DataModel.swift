@@ -16,6 +16,11 @@ public var vehicleJSON: JSON = JSON.null
 public var exchangeDollarsToCredits: Double = 0.62
 public var exchangeCreditsToDollars: Double = 1.62
 
+enum ApiAwakensError: Error {
+    case OfflineInCall
+    case JSONError(onKey: String)
+    case ExchangeError(onExchangeValue: String)
+}
 
 enum resourceType {
     case Character, Vehicle, Starship, null
@@ -139,6 +144,7 @@ func createJSON(json: JSON, resource: resourceType) {
     default: break
     }
 }
+
 
 func getJSON(resource: resourceType, url: URLConvertible? = nil) {
     if url != nil {
