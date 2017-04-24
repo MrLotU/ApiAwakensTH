@@ -259,6 +259,12 @@
                                     <outlet property="delegate" destination="n1K-Sm-vFa" id="omg-uz-VXp"/>
                                 </connections>
                             </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WBC-vj-x4Y">
+                                <rect key="frame" x="16" y="308" width="343" height="19"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.1058823529" green="0.12549019610000001" blue="0.14117647059999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -267,13 +273,18 @@
                             <constraint firstItem="ra7-oJ-4Uw" firstAttribute="top" secondItem="dRa-db-SQa" secondAttribute="bottom" id="KC7-kp-z1U"/>
                             <constraint firstItem="3gH-vP-YYa" firstAttribute="top" secondItem="NER-T1-Ln5" secondAttribute="bottom" constant="8" id="Ouy-qM-Hta"/>
                             <constraint firstItem="ra7-oJ-4Uw" firstAttribute="leading" secondItem="h7v-tw-jEg" secondAttribute="leading" id="QS2-hX-bE0"/>
+                            <constraint firstItem="NER-T1-Ln5" firstAttribute="top" secondItem="WBC-vj-x4Y" secondAttribute="bottom" constant="8" id="TLC-0B-WgK"/>
+                            <constraint firstItem="WBC-vj-x4Y" firstAttribute="leading" secondItem="h7v-tw-jEg" secondAttribute="leadingMargin" id="UzS-ia-8u5"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="WBC-vj-x4Y" secondAttribute="trailing" id="X3l-hU-hKr"/>
                             <constraint firstItem="NER-T1-Ln5" firstAttribute="leading" secondItem="h7v-tw-jEg" secondAttribute="leading" id="Xie-fB-ZPq"/>
+                            <constraint firstItem="WBC-vj-x4Y" firstAttribute="top" secondItem="ra7-oJ-4Uw" secondAttribute="bottom" id="aPI-YE-rXh"/>
                             <constraint firstAttribute="trailing" secondItem="NER-T1-Ln5" secondAttribute="trailing" id="bK7-Py-Ble"/>
                             <constraint firstAttribute="trailing" secondItem="ra7-oJ-4Uw" secondAttribute="trailing" id="oyO-RR-gWe"/>
                             <constraint firstItem="OhL-uD-w2T" firstAttribute="top" secondItem="3gH-vP-YYa" secondAttribute="bottom" id="wRH-P9-prr"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="associatedLabel" destination="WBC-vj-x4Y" id="cJX-xR-xUQ"/>
                         <outlet property="changeExchangeRateButton" destination="XLq-7T-Qm8" id="UQD-fG-N8Z"/>
                         <outlet property="largestLabel" destination="sDM-we-tec" id="pIg-Mf-dLf"/>
                         <outlet property="picker" destination="NER-T1-Ln5" id="ynR-sq-Kxr"/>

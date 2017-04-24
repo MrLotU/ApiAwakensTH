@@ -17,18 +17,17 @@ open class Character {
     let height: String
     var homeworld: String
     let eyeColor: String
-    let species: [String]
-    let starships: [String]
-    let vehicles: [String]
+    var starships: [String]
+    var vehicles: [String]
+    var associatedVehiclesAndStarships: [String] = []
     
-    public init(name: String, birthYear: String, hairColor: String, height: String, homeworld: String, eyeColor: String, species: [String], starships: [String], vehicles: [String]) {
+    public init(name: String, birthYear: String, hairColor: String, height: String, homeworld: String, eyeColor: String, starships: [String], vehicles: [String]) {
         self.name = name
         self.birthYear = birthYear
         self.hairColor = hairColor
         self.height = height
         self.homeworld = homeworld
         self.eyeColor = eyeColor
-        self.species = species
         self.starships = starships
         self.vehicles = vehicles
     }

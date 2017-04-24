@@ -15,6 +15,7 @@ class DetailViewController: UIViewController, UITableViewDataSource, UITableView
     @IBOutlet weak var picker: UIPickerView!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var changeExchangeRateButton: UIButton!
+    @IBOutlet weak var associatedLabel: UILabel!
     
     var arrayIndex = 0
     var category: resourceType = .null
@@ -151,6 +152,20 @@ class DetailViewController: UIViewController, UITableViewDataSource, UITableView
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         switch category {
         case .Character:
+            if characters[arrayIndex].associatedVehiclesAndStarships == [] {
+                associatedLabel.text = "No associated Vehicles and Starships."
+            } else {
+                var associatedString = "Associated Vehicles and Starships: "
+                for item in characters[arrayIndex].associatedVehiclesAndStarships {
+                    if item == characters[arrayIndex].associatedVehiclesAndStarships.last {
+                        associatedString += item
+                    } else {
+                        associatedString += "\(item), "
+                    }
+                }
+                associatedLabel.text = associatedString
+                associatedLabel.adjustsFontSizeToFitWidth = true
+            }
             if indexPath.row == 0 {
                 let cell = tableView.dequeueReusableCell(withIdentifier: "Name Cell", for: indexPath) as! NameTableViewCell
                 cell.label.text = characters[arrayIndex].name
